@@ -21,5 +21,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 
 
+
+
 //    @Query("select c.id , c.nombre , c")
 }
