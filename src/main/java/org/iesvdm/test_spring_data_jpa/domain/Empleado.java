@@ -10,12 +10,8 @@ import org.hibernate.annotations.OnDeleteAction;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity
-@Table(
-    name = "empleado",
-    uniqueConstraints = @UniqueConstraint(name = "uk_empleado_nif", columnNames = "nif"),
-    indexes = @Index(name = "idx_empleado_departamento_id", columnList = "departamento_id")
-)
+//@Entity
+
 public class Empleado {
 
   @Id
@@ -34,14 +30,11 @@ public class Empleado {
   @Column(length = 100)
   private String apellido2;
 
-  // Read-only FK
-  @Column(name = "departamento_id", insertable = false, updatable = false)
-  private Long departamentoId;
 
   //Lado propietario puesto que es esta tabla la que tiene la FK, en nuestro caso departamento_id
   @ManyToOne(fetch = FetchType.LAZY, optional = true)
-  @JoinColumn(name = "departamento_id")
-  @OnDelete(action = OnDeleteAction.CASCADE)
+
+
   private Departamento departamento;
 
 }

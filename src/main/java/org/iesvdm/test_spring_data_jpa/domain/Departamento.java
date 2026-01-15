@@ -14,11 +14,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity
-@Table(
-    name = "departamento",
-    uniqueConstraints = @UniqueConstraint(name = "uk_departamento_nombre", columnNames = "nombre")
-)
+//@Entity
+
 public class Departamento {
 
   @Id
